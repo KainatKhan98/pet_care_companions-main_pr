@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pet/constants/images.dart';
 import 'package:pet/constants/sizes.dart';
+import 'package:pet/features/home/doctor%20profile/doctorprofile.dart';
 import 'package:pet/features/personalization/controller/user_controller.dart';
 import '../../../constants/colors.dart';
 import '../../../constants/constants.dart';
@@ -14,11 +15,11 @@ class VaccinationScreen extends StatefulWidget {
   @override
   _VaccinationScreenState createState() => _VaccinationScreenState();
 }
- 
+
 class _VaccinationScreenState extends State<VaccinationScreen> {
 
   final controller = UserController.instance;
-  
+
   String? selectedPet;
   int currentPageIndex = 0;
   int catClickCount = 0; // Counter for Cat clicks
@@ -241,20 +242,12 @@ class _VaccinationScreenState extends State<VaccinationScreen> {
                       SizedBox(height: Sizes.defaultPadding),
                       Text('Nearby Service Providers', style: Theme.of(context).textTheme.headlineMedium),
                       SizedBox(height: Sizes.defaultPadding),
-                      const PetClinicCard(clinicName:'Family Pet Clinic Isb ', location: 'Islamabad', imagePath: 'assets/vaccineclinic.jpg', targetScreen: bookscreen1()),
-                      const SizedBox(height: 10),
-                      const PetClinicCard(clinicName:'Aliyan Pets Hospital', location: 'Islamabad', imagePath: 'assets/vaccineclinic.jpg', targetScreen: bookscreen1()),
-                      const SizedBox(height: 10),
-                      const PetClinicCard(clinicName:'The Pets Hopital Islamabad', location: 'Islamabad', imagePath: 'assets/vaccineclinic.jpg', targetScreen: bookscreen1()),
-                      const SizedBox(height: 10),
-                      const PetClinicCard(clinicName:'Alpha Pet care', location: 'Islamabad', imagePath: 'assets/vaccineclinic.jpg', targetScreen: bookscreen1()),
-                      const SizedBox(height: 10),
-                      const PetClinicCard(clinicName:'MS Pet Clinic', location: 'RawalPindi', imagePath: 'assets/vaccineclinic.jpg', targetScreen: bookscreen1()),
-                      const SizedBox(height: 10),
-                      const PetClinicCard(clinicName:'Meow pet Clinic', location: 'RawalPindi', imagePath: 'assets/vaccineclinic.jpg', targetScreen: bookscreen1()),
-                      const SizedBox(height: 10),
-                      const PetClinicCard(clinicName:'Veterinary Clinic ', location: 'RawalPindi', imagePath: 'assets/vaccineclinic.jpg', targetScreen: bookscreen1()),
-                      ProviderCard(providerName: controller.user.value.fullName, serviceName: 'Bathing', rating: '7', picture: vaccination,),
+                      ProfileScreen(),
+
+
+                      // ProviderCard(providerName: controller.user.value.fullName, serviceName: 'Bathing', rating: '7', picture: vaccination,),
+
+                      //
 
 
 
@@ -376,7 +369,7 @@ class PetClinicCard extends StatelessWidget {
   final String imagePath;
   final Widget targetScreen;
 
-  const PetClinicCard({super.key, 
+  const PetClinicCard({super.key,
     required this.clinicName,
     required this.location,
     required this.imagePath,
